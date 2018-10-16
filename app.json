@@ -2,7 +2,7 @@
   "name": "Heroku App: Python",
   "description": "A  Python app, which can easily be deployed to Heroku.",
   "image": "heroku/python",
-  "repository": "https://github.com/bhagvank/slacknlp",
+  "repository": "https://github.com/bhagvank/adapto_lernado",
   "keywords": ["python", "django" ],
   "addons": [ "heroku-mysql" ],
   "env": {
