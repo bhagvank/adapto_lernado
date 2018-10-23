@@ -48,7 +48,7 @@ except Exception as e:
 # Application definition
 
 INSTALLED_APPS = [
-    'nlp.apps.NLPConfig',
+    'adapt.apps.NLPConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

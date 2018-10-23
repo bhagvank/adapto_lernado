@@ -12,6 +12,7 @@ from .NLPUtils import NLPUtil
 import os
 import logging
 import base64
+import sys, traceback
 logger = logging.getLogger("nlp_logger")
 
 def login(request):
@@ -32,7 +33,7 @@ def login(request):
     #channels = slack.listChannels()
     #printf("channels", channels)
     # messages = listMessages("CBR05AS5N")
-    template_name = 'nlp/login.html'
+    template_name = 'adapt/login.html'
     #context = {'channels': channels}
     # context_object_name = 'channels'
     return render(request, template_name)
@@ -58,7 +59,7 @@ def logout(request):
        del request.session["slack_token"]
     except KeyError:
        pass   
-    template_name = 'nlp/login.html'
+    template_name = 'adapt/login.html'
     #context = {'channels': channels}
     # context_object_name = 'channels'
     return render(request, template_name)    
@@ -92,8 +93,11 @@ def authenticate(request):
     try:
        user = get_object_or_404(SlackUser, username=username)
     except:
-       template_name = 'nlp/login.html'
+       #traceback.print_stack()
+       traceback.print_exc(file=sys.stdout)
+       template_name = 'adapt/login.html'
        error_username = "Invalid username"
+
        context = {'error_useremail': error_username,
                 'error_password': error_password}
        return render(request, template_name,context)   
@@ -103,17 +107,18 @@ def authenticate(request):
        print(check,error_username,error_password)
        if check:
          # request.session["slack_token"] = user.getSlackToken()
-          template_name = 'nlp/main.html'
+          template_name = 'adapt/main.html'
+          #print("authenticated")
           logger.info("authenticated username "+username)
           # + "password "+ password.encode('base64'))
        else :
          print("setting template as login") 
-         template_name = 'nlp/login.html'
+         template_name = 'adapt/login.html'
          logger.info("authenticate failure username "+username )
          #+ "password "+ password.encode('base64'))   
     else :
         print("setting template as login")
-        template_name = 'nlp/login.html'
+        template_name = 'adapt/login.html'
         error_username = "Invalid username"
         logger.info("validation failure username "+username )
         #+ "password "+ password.encode('base64'))
@@ -141,7 +146,7 @@ def main(request):
     #channels = slack.listChannels()
     #printf("channels", channels)
     # messages = listMessages("CBR05AS5N")
-    template_name = 'nlp/main.html'
+    template_name = 'adapt/main.html'
     #context = {'channels': channels}
     # context_object_name = 'channels'
     return render(request, template_name)    
@@ -160,7 +165,7 @@ def signup(request):
         content is the result of render method     
     """
 
-    template_name = 'nlp/signup.html'
+    template_name = 'adapt/signup.html'
     #context = {'channels': channels}
     # context_object_name = 'channels'
     return render(request, template_name)    
@@ -206,14 +211,14 @@ def signin(request):
           user = SlackUser(username=username,password=password)
           user.save()
 
-          template_name = 'nlp/login.html'
+          template_name = 'adapt/login.html'
        else :
                #error_confirm_password = "password and confirm password do not match"
-          template_name = 'nlp/signup.html'
+          template_name = 'adapt/signup.html'
     else :
             #error_password = "password is not valid"
             #error_confirm_password = "confirm_password is not valid" 
-            template_name = 'nlp/signup.html'     
+            template_name = 'adapt/signup.html'     
       
     context = {'error_confirm_password': error_confirm_password,
                 'error_useremail': error_username,
@@ -268,7 +273,7 @@ def search(request):
           slack = SlackUtil(slack_token)
           messages,page_count = slack.searchAll(search_text,page,count)
                #error_confirm_password = "password and confirm password do not match"
-          template_name = 'nlp/tabs.html'
+          template_name = 'adapt/tabs.html'
           nlp = NLPUtil()
           messagesDict = {}
 
@@ -285,7 +290,7 @@ def search(request):
     else :
             #error_password = "password is not valid"
             #error_confirm_password = "confirm_password is not valid" 
-            template_name = 'nlp/search.html'     
+            template_name = 'adapt/search.html'     
       
     context = { 'error_search': error_search,
                 'query': search_text,
@@ -331,7 +336,7 @@ def index(request):
     channels,nextCursor = slack.listChannelsPage(page,count)
     #printf("channels", channels)
     # messages = listMessages("CBR05AS5N")
-    template_name = 'nlp/index.html'
+    template_name = 'adapt/index.html'
     context = {'channels': channels,
                 'nextCursor': nextCursor
                 }
@@ -368,7 +373,7 @@ def detail(request, channel_id):
            channelMessages.append(channelMessage)
        channel_name = slack.getChannelById(channel_id)
 
-       template_name = 'nlp/detail.html'
+       template_name = 'adapt/detail.html'
 
        context = {'messages': channelMessages,
                    'channel': channel_name,
@@ -419,7 +424,7 @@ def results(request, user_id):
     count = 10
 
 
-    template_name = 'nlp/results.html'
+    template_name = 'adapt/results.html'
     slack_token = request.session["slack_token"]
     slack = SlackUtil(slack_token)
     #messages= {}
@@ -506,7 +511,7 @@ def threads(request, thread_id):
                 'channel_id': channel_id,
                 'nextCursor': nextCursor
                }
-    template_name = 'nlp/threads.html' 
+    template_name = 'adapt/threads.html' 
               
     return render(request, template_name, context)
 

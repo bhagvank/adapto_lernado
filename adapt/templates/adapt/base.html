@@ -1,16 +1,16 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="{% static 'nlp/bootstrap.css' %}" media="screen">
-<link rel="stylesheet" href="{% static 'nlp/custom.min.css' %}"> 
-    <script src="{% static 'nlp/js/jquery.min.js' %}"></script>
-    <script src="{% static 'nlp/js/popper.min.js'%}"></script>
-    <script src="{% static 'nlp/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'nlp/js/custom.js' %}"></script>
+<link rel="stylesheet" href="{% static 'adapt/bootstrap.css' %}" media="screen">
+<link rel="stylesheet" href="{% static 'adapt/custom.min.css' %}"> 
+    <script src="{% static 'adapt/js/jquery.min.js' %}"></script>
+    <script src="{% static 'adapt/js/popper.min.js'%}"></script>
+    <script src="{% static 'adapt/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'adapt/js/custom.js' %}"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>{% block title %}Slack NLP{% endblock %}</title>
+<title>{% block title %}Slack adapt{% endblock %}</title>
 
 </head>
 <body>
@@ -22,11 +22,11 @@
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
             <h1>OpenSource AI</h1>
-            <p class="lead"> Slack NLP</p>
+            <p class="lead"> Slack adapt</p>
           </div>
           <div class="col-lg-4 col-md-5 col-sm-6">
             <div class="sponsor">
-              <img src="{% static 'nlp/images/logo.jpg' %}" width="150" height="150" class="center" align="middle">    
+              <img src="{% static 'adapt/images/logo.jpg' %}" width="150" height="150" class="center" align="middle">    
 
             </div>
           </div>
@@ -44,14 +44,14 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="/nlp/index">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/adapt/index">Home <span class="sr-only">(current)</span></a>
                     </li>
                     
                     <li class="nav-item">
-                      <a class="nav-link" href="/nlp/logout">Sign Out</a>
+                      <a class="nav-link" href="/adapt/logout">Sign Out</a>
                     </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0" action="/nlp/search/" method="post">
+                  <form class="form-inline my-2 my-lg-0" action="/adapt/search/" method="post">
                     {% csrf_token %}
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" name="Search" id="Search">
                     <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>

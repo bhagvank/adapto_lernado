@@ -45,17 +45,17 @@
                   {% else %}  
                   <li class="page-item disabled">  
                   {% endif %}  
-                    <a class="page-link" href="/nlp/search/?page={{page_num|sub:1}}&search={{query}}">Previous</a>
+                    <a class="page-link" href="/adapt/search/?page={{page_num|sub:1}}&search={{query}}">Previous</a>
                   </li>
                   
                   {% for i in loop_count %}
                   {% if i == page_num %}
                   <li class="page-item active">
-                      <a class="page-link" href="/nlp/search/?page={{i}}&search={{query}}">{{i}}</a>
+                      <a class="page-link" href="/adapt/search/?page={{i}}&search={{query}}">{{i}}</a>
                   </li>
                   {% else %}
                   <li class="page-item">
-                      <a class="page-link" href="/nlp/search/?page={{i}}&search={{query}}">{{i}}</a>
+                      <a class="page-link" href="/adapt/search/?page={{i}}&search={{query}}">{{i}}</a>
                   </li>
 
                   {% endif %}
@@ -65,7 +65,7 @@
                   {% else %}
                     <li class="page-item disabled">
                   {% endif %}  
-                    <a class="page-link" href="/nlp/search/?page={{page_num|add:1}}&search={{query}}">Next</a>
+                    <a class="page-link" href="/adapt/search/?page={{page_num|add:1}}&search={{query}}">Next</a>
                   </li>
                   
                 </ul>

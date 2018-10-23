@@ -1,12 +1,3 @@
-{% extends "nlp/base.html" %}
-{% load mathfilters %}
-{% block title %}Messages{% endblock %}
-
-
-{% block content %}
-
-{% if messages %}
-
 <div class="bs-docs-section">
 
         <div class="row">
@@ -51,17 +42,17 @@
                   {% else %}  
                   <li class="page-item disabled">  
                   {% endif %}  
-                    <a class="page-link" href="/nlp/search/?page={{page_num|sub:1}}&search={{query}}">Previous</a>
+                    <a class="page-link" href="/adapt/search/?page={{page_num|sub:1}}&search={{query}}">Previous</a>
                   </li>
                   
                   {% for i in loop_count %}
                   {% if i == page_num %}
                   <li class="page-item active">
-                      <a class="page-link" href="/nlp/search/?page={{i}}&search={{query}}">{{i}}</a>
+                      <a class="page-link" href="/adapt/search/?page={{i}}&search={{query}}">{{i}}</a>
                   </li>
                   {% else %}
                   <li class="page-item">
-                      <a class="page-link" href="/nlp/search/?page={{i}}&search={{query}}">{{i}}</a>
+                      <a class="page-link" href="/adapt/search/?page={{i}}&search={{query}}">{{i}}</a>
                   </li>
 
                   {% endif %}
@@ -71,18 +62,12 @@
                   {% else %}
                     <li class="page-item disabled">
                   {% endif %}  
-                    <a class="page-link" href="/nlp/search/?page={{page_num|add:1}}&search={{query}}">Next</a>
+                    <a class="page-link" href="/adapt/search/?page={{page_num|add:1}}&search={{query}}">Next</a>
                   </li>
                   
                 </ul>
               </div>
       </div>
-    </div>  
-    
-{% else %}
-    <br>
-    <br>
-    <p>Search Query is Blank. Fill the search Field and click on search</p>
-{% endif %}
-{% endblock %}
+    </div> 
 
+    </div>

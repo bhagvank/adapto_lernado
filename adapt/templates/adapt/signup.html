@@ -1,10 +1,10 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 <head>
-<link rel="stylesheet" href="{% static 'nlp/bootstrap.css' %}">
-<link rel="stylesheet" href="{% static 'nlp/custom.min.css' %}"> 
+<link rel="stylesheet" href="{% static 'adapt/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'adapt/custom.min.css' %}"> 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{% block title %}Slack NLP{% endblock %}</title>
+<title>{% block title %}Slack adapt{% endblock %}</title>
 
 </head>
 
@@ -22,7 +22,7 @@
           </div>
           <div class="col-lg-4 col-md-5 col-sm-6">
             <div class="sponsor">
-              <img src="{% static 'nlp/images/logo.png' %}" width="150" height="150" class="center" align="middle">    
+              <img src="{% static 'adapt/images/logo.png' %}" width="150" height="150" class="center" align="middle">    
 
             </div>
           </div>
@@ -40,7 +40,7 @@
                  <div class="collapse navbar-collapse" id="navbarColor01">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                      <a class="nav-link" href="/nlp/">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="/adapt/">Home <span class="sr-only">(current)</span></a>
                     </li>
                   </ul>
                 </div>
@@ -65,7 +65,7 @@
         <div class="row">
           <div class="col-lg-6">
             <div class="bs-component">
-              <form action="/nlp/signin/" method="POST">
+              <form action="/adapt/signin/" method="POST">
                 {% csrf_token %}
                 <fieldset>
                   <div class="form-group">
