@@ -6,7 +6,7 @@ Adaptive Learning Engine
 
 * [adapto_lernado Demo](https://floating-crag-10115.herokuapp.com/nlp/)
 
-Adaptive learning is a learning technique in which  every student learning can be better supported by giving guidance to find correct answers themselves. When students successfully grasp a concept, you can accelerate those students and offer high skill  content to stretch their knowledge. Adaptive Feedback provides the right information exactly when the student needs it. It can in the form of a hint, a video, a graph or additional material. The feedback is typicall triggered by a question response, the time spent on a screen or the number of question attempts.
+Adaptive learning is a learning technique in which  every student learning can be better supported by giving guidance to find correct answers themselves. When students successfully grasp a concept, you can accelerate those students and offer high skill  content to stretch their knowledge. Adaptive Feedback provides the right information exactly when the student needs it. It can in the form of a hint, a video, a graph or additional material. The feedback is typically triggered by a question response, the time spent on a screen or the number of question attempts.
 
 # Use Cases
 
