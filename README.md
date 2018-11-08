@@ -20,7 +20,7 @@ Adaptive learning is a learning technique in which  every student learning can b
 
 ## Learning Path
 
-1. Recommend practice questions for prepration
+1. Recommend practice questions for preparation
 
 2. Matching test questions to learning objectives
 
