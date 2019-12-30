@@ -92,11 +92,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#    }
+#}
 
 #DATABASES = {
 #    'default': {
@@ -108,7 +108,16 @@ DATABASES = {
 #        'PASSWORD' : 'newuser' 
 #               }
 #            }
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'PORT' : '5432',
+        'HOST' : 'localhost',
+        'NAME' : 'django_development',
+        'USER' : 'newuser',
+        'PASSWORD' : 'newuser' 
+               }
+              }  
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators
@@ -191,11 +200,11 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 SLACKTOKEN= ""
-GOOGLE_SERVICE_JSON="service.json"
-import dj_database_url
+#GOOGLE_SERVICE_JSON="service.json"
+#import dj_database_url
 
-DATABASE_URL = 'postgresql://postgresql'
+#DATABASE_URL = 'postgresql://postgresql'
 
-DATABASES = { 'default' : dj_database_url.config(default=DATABASE_URL)}
+#DATABASES = { 'default' : dj_database_url.config(default=DATABASE_URL)}
 
 

@@ -7,6 +7,7 @@ from django.views import generic
 from django.utils import timezone
 from django.template import loader
 from .models import SlackUser
+from .models import Recommendation
 from .slackutils import SlackUtil
 from .NLPUtils import NLPUtil
 import os
@@ -146,10 +147,12 @@ def main(request):
     #channels = slack.listChannels()
     #printf("channels", channels)
     # messages = listMessages("CBR05AS5N")
+    #recommendations = Recommendation.objects 
     template_name = 'adapt/main.html'
     #context = {'channels': channels}
     # context_object_name = 'channels'
-    return render(request, template_name)    
+    context = {}
+    return render(request, template_name,context)    
 
 def signup(request):
     """
@@ -324,23 +327,25 @@ def index(request):
     """
     #print("index")
     
-    page,count = _parsePage(request)
+    #page,count = _parsePage(request)
 
     
 
-    print("page", page)
+    #print("page", page)
 
-    slack_token = request.session["slack_token"]
-    slack = SlackUtil(slack_token)
+    #slack_token = request.session["slack_token"]
+    #slack = SlackUtil(slack_token)
     #channels = slack.listChannels()
-    channels,nextCursor = slack.listChannelsPage(page,count)
+    #channels,nextCursor = slack.listChannelsPage(page,count)
     #printf("channels", channels)
     # messages = listMessages("CBR05AS5N")
+    recommendations = Recommendation.objects.all()
     template_name = 'adapt/index.html'
-    context = {'channels': channels,
-                'nextCursor': nextCursor
-                }
+    #context = {'channels': channels,
+    #            'nextCursor': nextCursor
+    #            }
     # context_object_name = 'channels'
+    context = {'recommendations': recommendations}
     return render(request, template_name, context)
 
 def detail(request, channel_id):

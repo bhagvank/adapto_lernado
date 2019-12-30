@@ -6,6 +6,22 @@ import os
 
 # Create your models here.
 
+class Recommendation(models.Model):
+    
+    coursename = models.CharField(max_length=200)
+    courseno = models.CharField(max_length=200)
+    rating = models.CharField(max_length=200)
+    #slacktoken = models.CharField(max_length=200,default=os.environ['SLACK_TOKEN'])
+
+    def _str_(self):
+      """
+       str method
+       Returns
+      -----------
+       str
+         username
+      """
+      return self.coursename
 
 class SlackUser(models.Model):
     """
