@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.template import loader
 from .models import SlackUser
 from .models import Recommendation
+from .models import Course
 from .slackutils import SlackUtil
 from .NLPUtils import NLPUtil
 import os
@@ -346,6 +347,13 @@ def index(request):
     #            }
     # context_object_name = 'channels'
     context = {'recommendations': recommendations}
+    return render(request, template_name, context)
+
+def courses(request):
+
+    courses = Course.objects.all()
+    template_name = 'adapt/courses.html'
+    context = {'courses': courses}
     return render(request, template_name, context)
 
 def detail(request, channel_id):

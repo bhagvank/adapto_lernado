@@ -5,6 +5,21 @@ from django.utils import timezone
 import os
 
 # Create your models here.
+class Course(models.Model):
+    
+    coursename = models.CharField(max_length=200)
+    courseno = models.CharField(max_length=200)
+    
+    def _str_(self):
+      """
+       str method
+       Returns
+      -----------
+       str
+         username
+      """
+      return self.coursename
+
 
 class Recommendation(models.Model):
     
